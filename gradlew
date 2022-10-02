@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-
+mkdir -p /opt/ml/processing/output/
 #
 # Copyright 2015 the original author or authors.
 #
