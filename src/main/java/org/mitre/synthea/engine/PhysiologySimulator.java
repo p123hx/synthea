@@ -138,15 +138,17 @@ public class PhysiologySimulator {
     Map<String, Class<?>> initSolvers = new HashMap<String, Class<?>>();
 
     // Add all currently available solvers from the SBSCL library
-    initSolvers.put("adams_bashforth", AdamsBashforthSolver.class);
-    initSolvers.put("adams_moulton", AdamsMoultonSolver.class);
-    initSolvers.put("dormand_prince_54", DormandPrince54Solver.class);
-    initSolvers.put("dormand_prince_853", DormandPrince853Solver.class);
-    initSolvers.put("euler", EulerMethod.class);
-    initSolvers.put("gragg_bulirsch_stoer", GraggBulirschStoerSolver.class);
-    initSolvers.put("higham_hall_54", HighamHall54Solver.class);
-    initSolvers.put("rosenbrock", RosenbrockSolver.class);
-    initSolvers.put("runge_kutta", RungeKutta_EventSolver.class);
+    // NO further SBSCL library usage found.
+    // If found, comment out for license issues
+//    initSolvers.put("adams_bashforth", AdamsBashforthSolver.class);
+//    initSolvers.put("adams_moulton", AdamsMoultonSolver.class);
+//    initSolvers.put("dormand_prince_54", DormandPrince54Solver.class);
+//    initSolvers.put("dormand_prince_853", DormandPrince853Solver.class);
+//    initSolvers.put("euler", EulerMethod.class);
+//    initSolvers.put("gragg_bulirsch_stoer", GraggBulirschStoerSolver.class);
+//    initSolvers.put("higham_hall_54", HighamHall54Solver.class);
+//    initSolvers.put("rosenbrock", RosenbrockSolver.class);
+//    initSolvers.put("runge_kutta", RungeKutta_EventSolver.class);
 
     // Make unmodifiable so it doesn't change after initialization
     SOLVER_CLASSES = Collections.unmodifiableMap(initSolvers);

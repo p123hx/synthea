@@ -87,7 +87,7 @@ dependencies {
     }
 
   // Physiology simulation dependencies
-  implementation files('lib/sbscl/SimulationCoreLibrary_v1.5_slim.jar')
+//   implementation files('lib/sbscl/SimulationCoreLibrary_v1.5_slim.jar')
   implementation 'org.sbml.jsbml:jsbml:1.5', {
       exclude group:'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
   }
