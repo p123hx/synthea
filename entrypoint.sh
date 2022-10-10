@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 if [ ${SYNTHEA_SEED} ]; then
     ./run_synthea -s ${SYNTHEA_SEED} -p ${SYNTHEA_SIZE}
