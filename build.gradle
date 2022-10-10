@@ -19,10 +19,10 @@ apply plugin: 'signing'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
-  mavenCentral()
-  maven {
-    url "https://oss.sonatype.org/content/repositories/snapshots"
-  }
+    mavenCentral()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
 }
 
 // Uncomment to see deprecation warnings
@@ -31,154 +31,154 @@ repositories {
 // }
 
 checkstyle {
-  toolVersion '8.4'
-  //showViolations = true
+    toolVersion '8.4'
+    //showViolations = true
 }
 
 jacoco {
-  toolVersion '0.8.7'
+    toolVersion '0.8.7'
 }
 
 dependencies {
-  // This dependency is found on compile classpath of this component and consumers.
-  implementation 'com.google.code.gson:gson:2.8.7'
-  implementation 'com.jayway.jsonpath:json-path:2.4.0'
-  implementation 'ca.uhn.hapi.fhir:hapi-fhir-base:5.7.0'
-  implementation 'ca.uhn.hapi.fhir:hapi-fhir-structures-dstu3:5.7.0'
-  implementation 'ca.uhn.hapi.fhir:hapi-fhir-structures-dstu2:5.7.0'
-  implementation 'ca.uhn.hapi.fhir:hapi-fhir-structures-r4:5.7.0'
-  implementation 'ca.uhn.hapi.fhir:hapi-fhir-client:5.7.0'
-  // C-CDA export uses Apache FreeMarker templates
-  implementation 'org.freemarker:freemarker:2.3.26-incubating'
+    // This dependency is found on compile classpath of this component and consumers.
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'com.jayway.jsonpath:json-path:2.4.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-base:5.7.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-structures-dstu3:5.7.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-structures-dstu2:5.7.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-structures-r4:5.7.0'
+    implementation 'ca.uhn.hapi.fhir:hapi-fhir-client:5.7.0'
+    // C-CDA export uses Apache FreeMarker templates
+    implementation 'org.freemarker:freemarker:2.3.26-incubating'
 
-  // google guava for some data structures
-  implementation 'com.google.guava:guava:30.0-jre'
-  implementation 'guru.nidi:graphviz-java:0.2.4'
-  // CSV Stuff
-  implementation 'org.apache.commons:commons-csv:1.5'
-  implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.8.8'
-  implementation 'org.yaml:snakeyaml:1.27'
-  implementation 'org.apache.commons:commons-math3:3.6.1'
-  implementation 'org.apache.commons:commons-text:1.2'
-  implementation 'commons-validator:commons-validator:1.4.0'
+    // google guava for some data structures
+    implementation 'com.google.guava:guava:30.0-jre'
+    implementation 'guru.nidi:graphviz-java:0.2.4'
+    // CSV Stuff
+    implementation 'org.apache.commons:commons-csv:1.5'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.8.8'
+    implementation 'org.yaml:snakeyaml:1.27'
+    implementation 'org.apache.commons:commons-math3:3.6.1'
+    implementation 'org.apache.commons:commons-text:1.2'
+    implementation 'commons-validator:commons-validator:1.4.0'
 
-  implementation 'org.opencds.cqf:cql-engine:1.3.12'
-  implementation 'info.cqframework:cql:1.3.17'
-  implementation 'info.cqframework:model:1.3.17'
-  implementation 'info.cqframework:cql-to-elm:1.3.17'
+    implementation 'org.opencds.cqf:cql-engine:1.3.12'
+    implementation 'info.cqframework:cql:1.3.17'
+    implementation 'info.cqframework:model:1.3.17'
+    implementation 'info.cqframework:cql-to-elm:1.3.17'
 
-  implementation 'org.springframework:spring-web:5.2.7.RELEASE'
+    implementation 'org.springframework:spring-web:5.2.7.RELEASE'
 
-  // Java 9 no longer includes these APIs by default
-  implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
-  implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
-  implementation 'javax.activation:javax.activation-api:1.2.0'
+    // Java 9 no longer includes these APIs by default
+    implementation 'javax.xml.bind:jaxb-api:2.4.0-b180830.0359'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:2.3.2'
+    implementation 'javax.activation:javax.activation-api:1.2.0'
 
-  // get rid of SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-  // if we switch to a real logging framework we may want to switch this
-  implementation "org.slf4j:slf4j-api:1.7.9"
-  //implementation "org.slf4j:slf4j-nop:1.7.9" // SLF4J seems to already be provided by org.apache.logging.log4j
+    // get rid of SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+    // if we switch to a real logging framework we may want to switch this
+    implementation "org.slf4j:slf4j-api:1.7.9"
+    //implementation "org.slf4j:slf4j-nop:1.7.9" // SLF4J seems to already be provided by org.apache.logging.log4j
 
-  // ensure transitive dependencies do not use vulnerable log4j
-  implementation "org.apache.logging.log4j:log4j-core", {
+    // ensure transitive dependencies do not use vulnerable log4j
+    implementation "org.apache.logging.log4j:log4j-core", {
         version {
             strictly '2.17.0'
         }
     }
 
-  // Physiology simulation dependencies
-//   implementation files('lib/sbscl/SimulationCoreLibrary_v1.5_slim.jar')
-  implementation 'org.sbml.jsbml:jsbml:1.5', {
-      exclude group:'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
-  }
-  implementation 'org.apache.commons:commons-math:2.2'
+    // Physiology simulation dependencies
+    implementation files('lib/sbscl/SimulationCoreLibrary_v1.5_slim.jar')
+    implementation 'org.sbml.jsbml:jsbml:1.5', {
+        exclude group: 'org.apache.logging.log4j', module: 'log4j-slf4j-impl'
+    }
+    implementation 'org.apache.commons:commons-math:2.2'
 
-  // JfreeChart for drawing physiology charts
-  implementation 'org.jfree:jfreechart:1.5.0'
+    // JfreeChart for drawing physiology charts
+    implementation 'org.jfree:jfreechart:1.5.0'
 
-  // Use JUnit test framework
-  testImplementation 'junit:junit:4.12'
-  testImplementation fileTree(dir: 'lib/mdhtruntime/mdht', include: '*.jar')
-  testImplementation fileTree(dir: 'lib/mdhtruntime/non-mdht', include: '*.jar')
-  testImplementation 'org.mockito:mockito-core:2.19.0'
-  testImplementation 'org.powermock:powermock-module-junit4:1.7.1'
-  testImplementation 'org.powermock:powermock-api-mockito2:1.7.1'
-  testImplementation 'com.github.tomakehurst:wiremock-jre8:2.26.3'
-  testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation:5.7.0'
-  testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation-resources-r4:5.7.0'
-  testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation-resources-dstu3:5.7.0'
-  testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation-resources-dstu2:5.7.0'
-  testImplementation 'com.helger:ph-schematron:5.6.5'
-  testImplementation 'com.helger:ph-commons:9.5.4'
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+    testImplementation fileTree(dir: 'lib/mdhtruntime/mdht', include: '*.jar')
+    testImplementation fileTree(dir: 'lib/mdhtruntime/non-mdht', include: '*.jar')
+    testImplementation 'org.mockito:mockito-core:2.19.0'
+    testImplementation 'org.powermock:powermock-module-junit4:1.7.1'
+    testImplementation 'org.powermock:powermock-api-mockito2:1.7.1'
+    testImplementation 'com.github.tomakehurst:wiremock-jre8:2.26.3'
+    testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation:5.7.0'
+    testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation-resources-r4:5.7.0'
+    testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation-resources-dstu3:5.7.0'
+    testImplementation 'ca.uhn.hapi.fhir:hapi-fhir-validation-resources-dstu2:5.7.0'
+    testImplementation 'com.helger:ph-schematron:5.6.5'
+    testImplementation 'com.helger:ph-commons:9.5.4'
 }
 
 // Provide more descriptive test failure output
 test {
-  testLogging {
-    exceptionFormat = 'full'
-    // showExceptions = true
-    // showCauses = true
-    // showStackTraces = true
-    // showStandardStreams = true
-  }
-  maxHeapSize = "6144m"
-  jacoco {
-    includes = ["org.mitre.*"]
-  }
+    testLogging {
+        exceptionFormat = 'full'
+        // showExceptions = true
+        // showCauses = true
+        // showStackTraces = true
+        // showStandardStreams = true
+    }
+    maxHeapSize = "6144m"
+    jacoco {
+        includes = ["org.mitre.*"]
+    }
 }
 
 buildscript {
-  repositories {
-    mavenCentral()
-    maven {
-      url "https://oss.sonatype.org/content/repositories/snapshots"
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots"
+        }
     }
-  }
-  dependencies {
-    // commons-io used in getting the version id below
-    classpath group: 'commons-io', name: 'commons-io', version: '2.5'
-    // note that commons-io is already a dependency
-    // of commons-csv in the primary dependencies above
-  }
+    dependencies {
+        // commons-io used in getting the version id below
+        classpath group: 'commons-io', name: 'commons-io', version: '2.5'
+        // note that commons-io is already a dependency
+        // of commons-csv in the primary dependencies above
+    }
 }
 
 jacocoTestReport {
-  reports {
-    xml.required = true
-    html.required = true
-  }
+    reports {
+        xml.required = true
+        html.required = true
+    }
 }
 
 check.dependsOn jacocoTestReport
 
 task graphviz(type: JavaExec) {
-  group 'Application'
-  description 'Generate rule visualization'
-  classpath sourceSets.main.runtimeClasspath
-  mainClass = "Graphviz"
+    group 'Application'
+    description 'Generate rule visualization'
+    classpath sourceSets.main.runtimeClasspath
+    mainClass = "Graphviz"
 }
 
 task rifMinimize(type: JavaExec) {
-  group 'Application'
-  description 'Filter exported RIF files to produce minimal set that covers all claim types'
-  classpath sourceSets.main.runtimeClasspath
-  mainClass = "org.mitre.synthea.export.BB2RIFMinimizer"
+    group 'Application'
+    description 'Filter exported RIF files to produce minimal set that covers all claim types'
+    classpath sourceSets.main.runtimeClasspath
+    mainClass = "org.mitre.synthea.export.BB2RIFMinimizer"
 }
 
 task uberJar(type: Jar) {
     def versionFile = new File("$projectDir/src/main/resources/version.txt")
     def versionText = "N/A"
     if (versionFile.exists()) {
-      versionText = versionFile.text.trim()
+        versionText = versionFile.text.trim()
     }
     manifest {
         attributes(
-            'Main-Class'     : 'App',
-            'Build-Timestamp': new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
-            'Build-Version'  : versionText,
-            'Created-By'     : "Gradle ${gradle.gradleVersion}",
-            'Build-Jdk'      : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
-            'Build-OS'       : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
+                'Main-Class': 'App',
+                'Build-Timestamp': new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+                'Build-Version': versionText,
+                'Created-By': "Gradle ${gradle.gradleVersion}",
+                'Build-Jdk': "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                'Build-OS': "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}"
         )
     }
     archiveBaseName = 'synthea-with-dependencies'
@@ -188,42 +188,42 @@ task uberJar(type: Jar) {
 }
 
 task concepts(type: JavaExec) {
-  group 'Application'
-  description 'Create a list of simulated concepts'
-  classpath sourceSets.main.runtimeClasspath
-  mainClass = "org.mitre.synthea.helpers.Concepts"
-  args 'false'
+    group 'Application'
+    description 'Create a list of simulated concepts'
+    classpath sourceSets.main.runtimeClasspath
+    mainClass = "org.mitre.synthea.helpers.Concepts"
+    args 'false'
 }
 
 task conceptswithoutcosts(type: JavaExec) {
-  group 'Application'
-  description 'Create a list of simulated concepts without costs'
-  classpath sourceSets.main.runtimeClasspath
-  mainClass = "org.mitre.synthea.helpers.Concepts"
-  args 'true'
+    group 'Application'
+    description 'Create a list of simulated concepts without costs'
+    classpath sourceSets.main.runtimeClasspath
+    mainClass = "org.mitre.synthea.helpers.Concepts"
+    args 'true'
 }
 
 task attributes(type: JavaExec) {
-  group 'Application'
-  description 'Create a list of patient attributes'
-  classpath sourceSets.main.runtimeClasspath
-  mainClass = "org.mitre.synthea.helpers.Attributes"
+    group 'Application'
+    description 'Create a list of patient attributes'
+    classpath sourceSets.main.runtimeClasspath
+    mainClass = "org.mitre.synthea.helpers.Attributes"
 }
 
 task overrides(type: JavaExec) {
-  group 'Application'
-  description 'Create a list of modules parameters in module override format'
-  classpath sourceSets.main.runtimeClasspath
-  mainClass = "org.mitre.synthea.helpers.ModuleOverrides"
-  doFirst {
-    // TODO: is there a way to make this cleaner?
-    String includeFields = project.hasProperty('includeFields') ? project.getProperty('includeFields') : ""
-    String includeModules = project.hasProperty('includeModules') ? project.getProperty('includeModules') : ""
-    String excludeFields = project.hasProperty('excludeFields') ? project.getProperty('excludeFields') : ""
-    String excludeModules = project.hasProperty('excludeModules') ? project.getProperty('excludeModules') : ""
+    group 'Application'
+    description 'Create a list of modules parameters in module override format'
+    classpath sourceSets.main.runtimeClasspath
+    mainClass = "org.mitre.synthea.helpers.ModuleOverrides"
+    doFirst {
+        // TODO: is there a way to make this cleaner?
+        String includeFields = project.hasProperty('includeFields') ? project.getProperty('includeFields') : ""
+        String includeModules = project.hasProperty('includeModules') ? project.getProperty('includeModules') : ""
+        String excludeFields = project.hasProperty('excludeFields') ? project.getProperty('excludeFields') : ""
+        String excludeModules = project.hasProperty('excludeModules') ? project.getProperty('excludeModules') : ""
 
-    args(includeFields, includeModules, excludeFields, excludeModules)
-  }
+        args(includeFields, includeModules, excludeFields, excludeModules)
+    }
 }
 
 task physiology(type: JavaExec) {
@@ -234,51 +234,51 @@ task physiology(type: JavaExec) {
 }
 
 task versionTxt() {
-  group 'Build'
-  description 'Generates a version file.'
-  doLast {
-    try {
-      // the ruby version uses `git rev-parse HEAD` which just produces the long commit hash.
-      // "git describe" can use tags or fallback to the commit hash if necessary.
-      // this assumes (as does the ruby version) that git will always be present when building
-      String[] cmd = ["git", "describe", "--tags", "--always"]
-      Process p = Runtime.getRuntime().exec(cmd)
-      p.waitFor()
-      def version = org.apache.commons.io.IOUtils.toString(p.getInputStream(), java.nio.charset.StandardCharsets.UTF_8)
-      def file = new File("$projectDir/src/main/resources/version.txt")
-      file.createNewFile()
-      file.text = version
-    } catch (e) {
-      // ex. if git is not installed, or if we can't write the file for some reason. it's not critical to the execution so don't crash
-      logger.warn("Warning: unable to create version.txt. Generated records will not indicate which version of Synthea was used to create them.")
-      logger.warn(e.getMessage())
+    group 'Build'
+    description 'Generates a version file.'
+    doLast {
+        try {
+            // the ruby version uses `git rev-parse HEAD` which just produces the long commit hash.
+            // "git describe" can use tags or fallback to the commit hash if necessary.
+            // this assumes (as does the ruby version) that git will always be present when building
+            String[] cmd = ["git", "describe", "--tags", "--always"]
+            Process p = Runtime.getRuntime().exec(cmd)
+            p.waitFor()
+            def version = org.apache.commons.io.IOUtils.toString(p.getInputStream(), java.nio.charset.StandardCharsets.UTF_8)
+            def file = new File("$projectDir/src/main/resources/version.txt")
+            file.createNewFile()
+            file.text = version
+        } catch (e) {
+            // ex. if git is not installed, or if we can't write the file for some reason. it's not critical to the execution so don't crash
+            logger.warn("Warning: unable to create version.txt. Generated records will not indicate which version of Synthea was used to create them.")
+            logger.warn(e.getMessage())
+        }
     }
-  }
 }
 
 compileJava.dependsOn versionTxt
 uberJar.dependsOn versionTxt
 
 task cleanOutput {
-  doLast {
-    delete fileTree(dir: 'output', include: '**/*')
-  }
+    doLast {
+        delete fileTree(dir: 'output', include: '**/*')
+    }
 }
 
 // Define the main class for the application
 mainClassName = 'App'
 
 run {
-  // args are called "arams" because they are called with -P,
-  // ex. gradle run -Params="['arg1', 'args2']"
-  // see https://stackoverflow.com/questions/27604283/gradle-task-pass-arguments-to-java-application
-  if (project.hasProperty("arams")) {
-    args Eval.me(arams)
-  }
-  def maxHeapSizeVar = System.getenv("MAX_HEAP_SIZE")
-  if (maxHeapSizeVar != null) {
-    maxHeapSize = maxHeapSizeVar
-  }
+    // args are called "arams" because they are called with -P,
+    // ex. gradle run -Params="['arg1', 'args2']"
+    // see https://stackoverflow.com/questions/27604283/gradle-task-pass-arguments-to-java-application
+    if (project.hasProperty("arams")) {
+        args Eval.me(arams)
+    }
+    def maxHeapSizeVar = System.getenv("MAX_HEAP_SIZE")
+    if (maxHeapSizeVar != null) {
+        maxHeapSize = maxHeapSizeVar
+    }
 }
 
 task sourceJar(type: Jar) {
@@ -355,6 +355,6 @@ publishing {
 }
 
 signing {
-  required { project.hasProperty('signing.keyId') }
-  sign publishing.publications.synthea
+    required { project.hasProperty('signing.keyId') }
+    sign publishing.publications.synthea
 }
